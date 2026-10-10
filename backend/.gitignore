@@ -1,0 +1,6 @@
+.pytest_cache
+.env.example
+tests/__pycache__
+
+run_backend.bat
+.venv/
