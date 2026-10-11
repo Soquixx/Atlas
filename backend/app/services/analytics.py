@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import gc
 import json
 from dataclasses import dataclass
 from pathlib import Path
@@ -38,12 +39,32 @@ SOURCES = {
 
 
 
+# Low-cardinality text columns of the two big files. Storing them as pandas "category"
+# instead of Python strings cuts RAM by ~5x (needed to fit Render's 512MB free tier).
+CATEGORY_COLUMNS = {
+    "academic_course_records.csv": [
+        "course_id", "course_name", "course_start_date", "course_end_date",
+        "result_status", "recorded_at", "source_system", "record_review_flag",
+    ],
+    "lms_weekly_activity.csv": ["week_start", "data_received_at", "source_system"],
+}
+
+
+def read_source_csv(path: Path, filename: str) -> pd.DataFrame:
+    """Read a source CSV; large files get category dtypes for repetitive text columns."""
+    cols = CATEGORY_COLUMNS.get(filename)
+    if not cols:
+        return pd.read_csv(path, low_memory=False)
+    header = pd.read_csv(path, nrows=0).columns
+    dtypes = {c: "category" for c in cols if c in header}
+    return pd.read_csv(path, low_memory=False, dtype=dtypes)
+
+
 def adapt_source_schema(filename: str, frame: pd.DataFrame) -> pd.DataFrame:
     """Normalize common institution export variants to ATLAS canonical column names.
 
     Derived placeholder fields are clearly documented; this does not manufacture assessment scores.
     """
-    frame = frame.copy()
     aliases = {
         "Student_ID": ["student_id", "Student ID", "studentId", "Roll_No", "roll_no"],
         "Program_Year": ["program_year", "Year", "year_of_study", "Program Year"],
@@ -118,7 +139,7 @@ class DatasetStore:
             path = self.data_dir / filename
             if not path.exists():
                 raise FileNotFoundError(f"Required dataset file not found: {path}")
-            frame = adapt_source_schema(filename, pd.read_csv(path, low_memory=False))
+            frame = adapt_source_schema(filename, read_source_csv(path, filename))
             missing_cols = sorted(set(required) - set(frame.columns))
             if missing_cols:
                 raise ValueError(f"{filename} is missing required columns: {', '.join(missing_cols)}")
@@ -126,6 +147,7 @@ class DatasetStore:
                 frame["Student_ID"] = frame["Student_ID"].astype("string").str.strip()
             self.raw[filename] = frame
         self.students = self._build_student_features()
+        gc.collect()
         self.model, self.model_metrics = self._load_placement_model()
         self._apply_scores_and_segments()
 
@@ -134,7 +156,7 @@ class DatasetStore:
         master["Student_ID"] = master["Student_ID"].astype(str).str.strip()
         master = master.drop_duplicates("Student_ID", keep="first")
 
-        academic = self.raw["academic_course_records.csv"].copy()
+        academic = self.raw["academic_course_records.csv"][["record_id", "Student_ID", "total_marks_100", "backlog_flag", "attendance_pct_course", "assignment_score_100", "semester"]].copy()
         for col in ["total_marks_100", "backlog_flag", "attendance_pct_course", "assignment_score_100", "semester"]:
             academic[col] = pd.to_numeric(academic[col], errors="coerce")
         academic_agg = academic.groupby("Student_ID", as_index=False).agg(
@@ -152,8 +174,8 @@ class DatasetStore:
         sem.columns = [f"semester_{int(c)}_average_marks" for c in sem.columns]
         academic_agg = academic_agg.merge(sem.reset_index(), on="Student_ID", how="left", validate="one_to_one")
 
-        lms = self.raw["lms_weekly_activity.csv"].copy()
-        lms["week_start"] = pd.to_datetime(lms["week_start"], errors="coerce")
+        lms = self.raw["lms_weekly_activity.csv"][["Student_ID", "week_number", "week_start", "assignments_due", "assignments_submitted", "assignments_on_time", "lms_activity_index", "login_days", "active_minutes"]].copy()
+        lms["week_start"] = pd.to_datetime(lms["week_start"].astype("object"), errors="coerce")
         for col in ["week_number", "assignments_due", "assignments_submitted", "assignments_on_time", "lms_activity_index", "login_days", "active_minutes"]:
             if col in lms:
                 lms[col] = pd.to_numeric(lms[col], errors="coerce")
@@ -438,8 +460,8 @@ class DatasetStore:
             academic_risk_count=("academic_risk_level", lambda x: int((x == "High").sum())),
             placement_risk_count=("placement_risk_level", lambda x: int((x == "High").sum())),
         ).reset_index().sort_values("students", ascending=False)
-        lms = self.raw["lms_weekly_activity.csv"].copy()
-        lms["week_start"] = pd.to_datetime(lms["week_start"], errors="coerce")
+        lms = self.raw["lms_weekly_activity.csv"][["week_start", "week_number", "lms_activity_index", "assignments_due", "assignments_submitted", "assignments_on_time"]].copy()
+        lms["week_start"] = pd.to_datetime(lms["week_start"].astype("object"), errors="coerce")
         lms["week_number"] = pd.to_numeric(lms["week_number"], errors="coerce")
         trend = lms.groupby("week_number").agg(
             week_start=("week_start", "min"), average_activity=("lms_activity_index", "mean"),

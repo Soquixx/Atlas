@@ -32,12 +32,16 @@ DATA_DIR = Path(
 ).resolve()
 
 store = DatasetStore(DATA_DIR)
-
-store = DatasetStore(DATA_DIR)
 STAGING_DIR = DATA_DIR.parent / "staging"
 STAGING_DIR.mkdir(parents=True, exist_ok=True)
 DEMO_READ_ONLY = os.getenv("DEMO_READ_ONLY", "false").strip().lower() in {"1", "true", "yes"}
 MAX_UPLOAD_BYTES = int(os.getenv("MAX_UPLOAD_MB", "100")) * 1024 * 1024
+
+
+def _cols(frame: pd.DataFrame, wanted: list[str]) -> pd.DataFrame:
+    """Copy only the columns we need (the raw LMS/academic frames are large)."""
+    return frame[[c for c in wanted if c in frame.columns]].copy()
+
 DB_PATH = Path(os.getenv("ATLAS_DB_PATH", str(DATA_DIR.parent / "atlas_state.sqlite3"))).resolve()
 logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"))
 logger = logging.getLogger("atlas")
@@ -137,7 +141,7 @@ def _current_patterns(dataset: DatasetStore) -> list[dict]:
             if pd.notna(engagement) and engagement < overall.get("engagement_score", engagement) - 8:
                 findings.append({"id": f"engagement-gap-{str(segment)[:24]}", "category": "Engagement difference", "title": f"Engagement is below the campus average in {segment}", "scope": str(segment), "student_count": int(len(group)), "evidence": {"engagement_average": round(engagement,1), "campus_engagement_average": round(overall.get("engagement_score",0),1), "difference_points": round(engagement-overall.get("engagement_score",engagement),1)}, "interpretation": "This group’s measured engagement score is lower than the current campus average. It does not establish why.", "suggested_action": "Check source coverage and ask assigned staff to review learning access and assignment completion before offering support.", "owner": "Faculty / mentor", "measure": "Compare engagement and on-time submission at the next reporting point."})
     
-    acad = dataset.raw.get("academic_course_records.csv", pd.DataFrame()).copy()
+    acad = _cols(dataset.raw.get("academic_course_records.csv", pd.DataFrame()), ["Student_ID", "course_id", "total_marks_100"])
     if not acad.empty and {"course_id", "total_marks_100"}.issubset(acad.columns):
         acad["total_marks_100"] = pd.to_numeric(acad["total_marks_100"], errors="coerce")
         stats = acad.groupby("course_id").agg(students=("Student_ID","nunique"), average_marks=("total_marks_100","mean")).reset_index()
@@ -148,7 +152,7 @@ def _current_patterns(dataset: DatasetStore) -> list[dict]:
                 if pd.notna(row.average_marks) and row.average_marks < cohort_avg - 5:
                     findings.append({"id": f"course-{row.course_id}", "category": "Course-level bottleneck", "title": f"Course {row.course_id} is below the academic average", "scope": str(row.course_id), "student_count": int(row.students), "evidence": {"course_average_marks": round(float(row.average_marks),1), "overall_course_average": round(cohort_avg,1), "difference_points": round(float(row.average_marks)-cohort_avg,1)}, "interpretation": "The observed course average is below the overall course-record average. Cohort composition and assessment difficulty may contribute.", "suggested_action": "Review assessment coverage, grade distribution and attendance with the course coordinator before selecting support.", "owner": "Course coordinator", "measure": "Compare the next assessment distribution and attendance."})
     
-    lms = dataset.raw.get("lms_weekly_activity.csv", pd.DataFrame()).copy()
+    lms = _cols(dataset.raw.get("lms_weekly_activity.csv", pd.DataFrame()), ["Student_ID", "week_number", "lms_activity_index"])
     if not lms.empty and {"Student_ID","week_number","lms_activity_index"}.issubset(lms.columns):
         lms["week_number"] = pd.to_numeric(lms["week_number"], errors="coerce")
         lms["lms_activity_index"] = pd.to_numeric(lms["lms_activity_index"], errors="coerce")
