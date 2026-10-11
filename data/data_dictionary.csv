@@ -1,0 +1,84 @@
+table,column,description,provenance
+student_master.csv,Student_ID,Pseudonymous student key used to join source tables.,Synthetic; generated with seed 26042
+student_master.csv,Enrollment_Year,Year of admission.,Synthetic; generated with seed 26042
+student_master.csv,Program_Year,Program year at the feature snapshot.,Synthetic; generated with seed 26042
+student_master.csv,Expected_Graduation_Year,Expected graduation year.,Synthetic; generated with seed 26042
+student_master.csv,Age,"Synthetic age; demographic context only, excluded from model.",Synthetic; generated with seed 26042
+student_master.csv,Gender,Synthetic demographic context; excluded from model.,Synthetic; generated with seed 26042
+student_master.csv,Home_State,Synthetic home-state context; excluded from model.,Synthetic; generated with seed 26042
+student_master.csv,Branch,"Academic department; use for cohort-level context only, not the placement model.",Synthetic; generated with seed 26042
+student_master.csv,Snapshot_Date,Cutoff date for predictor information.,Synthetic; generated with seed 26042
+student_master.csv,Source_System,Source-system label.,Synthetic; generated with seed 26042
+academic_course_records.csv,record_id,Unique course-record ID.,Synthetic; generated with seed 26042
+academic_course_records.csv,Student_ID,Student join key.,Synthetic; generated with seed 26042
+academic_course_records.csv,semester,"Historical semester (5, 6 or 7).",Synthetic; generated with seed 26042
+academic_course_records.csv,program_year,Program year for the course.,Synthetic; generated with seed 26042
+academic_course_records.csv,course_id,Foreign key to course_catalog.csv.,Synthetic; generated with seed 26042
+academic_course_records.csv,internal_marks_30,Internal assessment score out of 30.,Synthetic; generated with seed 26042
+academic_course_records.csv,end_sem_marks_70,End-semester score out of 70.,Synthetic; generated with seed 26042
+academic_course_records.csv,total_marks_100,Sum of internal and end-semester marks.,Synthetic; generated with seed 26042
+academic_course_records.csv,attendance_pct_course,Course attendance percentage; may be missing.,Synthetic; generated with seed 26042
+academic_course_records.csv,assignment_score_100,Course assignment score; may be missing.,Synthetic; generated with seed 26042
+academic_course_records.csv,backlog_flag,"1 when total marks are below 40, else 0.",Synthetic; generated with seed 26042
+academic_course_records.csv,result_status,Pass/fail plus occasional review label.,Synthetic; generated with seed 26042
+academic_course_records.csv,record_review_flag,Source-quality status; not a student-risk label.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,activity_id,Unique weekly LMS record ID.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,Student_ID,Student join key.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,week_number,Week number 1-16.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,week_start,Start date for weekly activity.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,login_days,Number of days with at least one LMS login.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,login_sessions,Recorded sessions.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,resource_clicks,LMS resource clicks; may be missing.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,assignments_due,Assignments due in the week.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,assignments_submitted,Assignments submitted.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,assignments_on_time,Assignments submitted on time.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,active_minutes,Recorded active minutes; may be missing.,Synthetic; generated with seed 26042
+lms_weekly_activity.csv,lms_activity_index,Composite activity metric from the source system; may be missing.,Synthetic; generated with seed 26042
+engagement_summary.csv,engagement_record_id,Unique engagement source record ID.,Synthetic; generated with seed 26042
+engagement_summary.csv,Student_ID,Student join key.,Synthetic; generated with seed 26042
+engagement_summary.csv,clubs_joined,Clubs reported.,Synthetic; generated with seed 26042
+engagement_summary.csv,campus_events_attended,Campus events attended.,Synthetic; generated with seed 26042
+engagement_summary.csv,hackathons_participated,Hackathons attended.,Synthetic; generated with seed 26042
+engagement_summary.csv,career_events_attended,Career events attended.,Synthetic; generated with seed 26042
+engagement_summary.csv,volunteer_hours,Reported volunteer hours.,Synthetic; generated with seed 26042
+engagement_summary.csv,leadership_experience,Leadership indicator.,Synthetic; generated with seed 26042
+engagement_summary.csv,certifications_count,Certification count.,Synthetic; generated with seed 26042
+engagement_summary.csv,projects_count,Project count.,Synthetic; generated with seed 26042
+engagement_summary.csv,internships_count,Internship count.,Synthetic; generated with seed 26042
+engagement_summary.csv,open_source_contributions,Open-source contributions.,Synthetic; generated with seed 26042
+engagement_summary.csv,github_contributions,GitHub contributions.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,prep_record_id,Unique preparation source record ID.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,Student_ID,Student join key.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,aptitude_assessment_score_100,Pre-outcome aptitude score.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,coding_assessment_score_100,Pre-outcome coding score.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,communication_assessment_score_100,Pre-outcome communication assessment.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,mock_coding_score_100,Mock coding score.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,mock_interview_score_100,Mock interview score.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,resume_review_score_100,Resume review score.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,group_discussion_score_100,Group-discussion score.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,placement_training_sessions_attended,Sessions attended before cutoff.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,mock_interviews_completed,Mock interviews completed before cutoff.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,campus_drives_attended_before_cutoff,Drives attended before outcome window.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,applications_submitted_before_cutoff,Applications submitted before outcome window.,Synthetic; generated with seed 26042
+placement_preparation_activity.csv,technical_assessment_attempts,Technical assessment attempts.,Synthetic; generated with seed 26042
+student_feedback.csv,feedback_id,Unique feedback submission ID.,Synthetic; generated with seed 26042
+student_feedback.csv,Student_ID,Student join key.,Synthetic; generated with seed 26042
+student_feedback.csv,survey_date,Date submitted.,Synthetic; generated with seed 26042
+student_feedback.csv,satisfaction_score_1_5,"Satisfaction response (1-5), not observed for non-respondents.",Synthetic; generated with seed 26042
+student_feedback.csv,faculty_clarity_1_5,Faculty clarity rating (1-5).,Synthetic; generated with seed 26042
+student_feedback.csv,workload_manageability_1_5,Workload manageability rating (1-5).,Synthetic; generated with seed 26042
+student_feedback.csv,lms_usability_1_5,LMS usability rating (1-5).,Synthetic; generated with seed 26042
+student_feedback.csv,support_requested,Whether the student requested support.,Synthetic; generated with seed 26042
+student_feedback.csv,feedback_topic,Survey topic.,Synthetic; generated with seed 26042
+placement_outcomes.csv,Student_ID,Student join key.,Synthetic; generated with seed 26042
+placement_outcomes.csv,Placement_Status,Target label for the placement-outlook model.,Synthetic; generated with seed 26042
+placement_outcomes.csv,Offer_Count,Number of offers in the outcome window; must not be a feature.,Synthetic; generated with seed 26042
+placement_outcomes.csv,Package_LPA,Offer package in LPA; must not be a feature.,Synthetic; generated with seed 26042
+placement_outcomes.csv,Days_To_First_Offer,"Days to first offer; target-side outcome, not a feature.",Synthetic; generated with seed 26042
+placement_outcomes.csv,First_Offer_Date,"Date of first offer; target-side outcome, not a feature.",Synthetic; generated with seed 26042
+course_catalog.csv,course_id,Course primary key.,Synthetic; generated with seed 26042
+course_catalog.csv,branch,Course department.,Synthetic; generated with seed 26042
+course_catalog.csv,semester,Historical semester.,Synthetic; generated with seed 26042
+course_catalog.csv,course_name,Course title.,Synthetic; generated with seed 26042
+course_catalog.csv,credits,Course credits.,Synthetic; generated with seed 26042
+course_catalog.csv,difficulty_level,Synthetic course difficulty.,Synthetic; generated with seed 26042

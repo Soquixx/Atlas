@@ -1,0 +1,15 @@
+metric,value,notes
+students,20000.0,"Expected 20,000"
+academic_course_records,300000.0,Three historical semesters x five courses per student
+lms_weekly_records,314975.0,"Sixteen weeks planned; some student-weeks are absent, not zero-filled"
+engagement_records,19096.0,Some students have no engagement source record
+placement_prep_records,19737.0,Some assessment fields and some records are missing
+feedback_responses,19345.0,"No response is missing data, not dissatisfaction"
+placement_rate,0.5482,Synthetic label rate; not a real-world benchmark
+students_with_any_backlog,3122.0,Historical records across semesters 5-7
+feedback_coverage,0.8212,Student feedback response coverage
+missing_lms_student_weeks,5025.0,Missing week rows are intentionally not imputed to zero
+duplicate_student_ids_in_master,0.0,Must be zero
+orphan_academic_ids,0.0,Must be zero
+bad_marks_sums,0.0,Must be zero
+bad_assignment_counts,0.0,Must be zero

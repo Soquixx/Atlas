@@ -1,0 +1,11 @@
+file,rows,columns,size_bytes
+academic_course_records.csv,300000,18,42210491
+course_catalog.csv,120,9,10303
+data_dictionary.csv,83,4,9321
+data_quality_report.csv,14,3,926
+engagement_summary.csv,19096,16,1927734
+lms_weekly_activity.csv,314975,15,29442004
+placement_outcomes.csv,20000,10,2084024
+placement_preparation_activity.csv,19737,16,1965397
+student_feedback.csv,19345,11,1635203
+student_master.csv,20000,10,1501440

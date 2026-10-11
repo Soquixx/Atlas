@@ -1,0 +1,121 @@
+course_id,branch,semester,course_name,credits,difficulty_level,learning_area,applicable_semesters,source_system
+CSE_S5_C01,CSE,5,Data Structures,4,Moderate,Core,5,academic_catalog_export
+CSE_S5_C02,CSE,5,Database Systems,2,Low,Core,5,academic_catalog_export
+CSE_S5_C03,CSE,5,Operating Systems,3,Moderate,Core,5,academic_catalog_export
+CSE_S5_C04,CSE,5,Computer Networks,3,Moderate,Applied/Lab,5,academic_catalog_export
+CSE_S5_C05,CSE,5,Software Engineering,4,High,Applied/Lab,5,academic_catalog_export
+CSE_S6_C01,CSE,6,Design and Analysis of Algorithms,3,High,Core,6,academic_catalog_export
+CSE_S6_C02,CSE,6,Web Technologies,4,Moderate,Core,6,academic_catalog_export
+CSE_S6_C03,CSE,6,Machine Learning Foundations,2,Low,Core,6,academic_catalog_export
+CSE_S6_C04,CSE,6,Cloud Computing,3,Moderate,Applied/Lab,6,academic_catalog_export
+CSE_S6_C05,CSE,6,Compiler Design,3,Moderate,Applied/Lab,6,academic_catalog_export
+CSE_S7_C01,CSE,7,Distributed Systems,4,Moderate,Core,7,academic_catalog_export
+CSE_S7_C02,CSE,7,Information Security,3,High,Core,7,academic_catalog_export
+CSE_S7_C03,CSE,7,Applied AI,2,Low,Core,7,academic_catalog_export
+CSE_S7_C04,CSE,7,Data Engineering,2,Moderate,Applied/Lab,7,academic_catalog_export
+CSE_S7_C05,CSE,7,Project Lab,4,High,Applied/Lab,7,academic_catalog_export
+IT_S5_C01,IT,5,Data Structures,4,Moderate,Core,5,academic_catalog_export
+IT_S5_C02,IT,5,Database Systems,4,Low,Core,5,academic_catalog_export
+IT_S5_C03,IT,5,Computer Networks,3,Low,Core,5,academic_catalog_export
+IT_S5_C04,IT,5,Web Application Development,3,High,Applied/Lab,5,academic_catalog_export
+IT_S5_C05,IT,5,Software Engineering,2,Moderate,Applied/Lab,5,academic_catalog_export
+IT_S6_C01,IT,6,Operating Systems,3,Moderate,Core,6,academic_catalog_export
+IT_S6_C02,IT,6,Information Security,2,High,Core,6,academic_catalog_export
+IT_S6_C03,IT,6,Cloud Platforms,2,Moderate,Core,6,academic_catalog_export
+IT_S6_C04,IT,6,Applied Data Analytics,3,High,Applied/Lab,6,academic_catalog_export
+IT_S6_C05,IT,6,Mobile Computing,4,Low,Applied/Lab,6,academic_catalog_export
+IT_S7_C01,IT,7,Distributed Systems,2,Moderate,Core,7,academic_catalog_export
+IT_S7_C02,IT,7,DevOps Engineering,3,Low,Core,7,academic_catalog_export
+IT_S7_C03,IT,7,Applied AI,3,Moderate,Core,7,academic_catalog_export
+IT_S7_C04,IT,7,Data Engineering,3,Low,Applied/Lab,7,academic_catalog_export
+IT_S7_C05,IT,7,Project Lab,2,High,Applied/Lab,7,academic_catalog_export
+ECE_S5_C01,ECE,5,Signals and Systems,4,Moderate,Core,5,academic_catalog_export
+ECE_S5_C02,ECE,5,Digital Electronics,3,Moderate,Core,5,academic_catalog_export
+ECE_S5_C03,ECE,5,Analog Circuits,2,Low,Core,5,academic_catalog_export
+ECE_S5_C04,ECE,5,Microprocessors,3,High,Applied/Lab,5,academic_catalog_export
+ECE_S5_C05,ECE,5,Communication Systems,3,Moderate,Applied/Lab,5,academic_catalog_export
+ECE_S6_C01,ECE,6,Digital Signal Processing,3,Low,Core,6,academic_catalog_export
+ECE_S6_C02,ECE,6,Embedded Systems,3,Low,Core,6,academic_catalog_export
+ECE_S6_C03,ECE,6,Control Systems,3,High,Core,6,academic_catalog_export
+ECE_S6_C04,ECE,6,VLSI Design,3,Moderate,Applied/Lab,6,academic_catalog_export
+ECE_S6_C05,ECE,6,Electromagnetics,2,Moderate,Applied/Lab,6,academic_catalog_export
+ECE_S7_C01,ECE,7,IoT Systems,4,Moderate,Core,7,academic_catalog_export
+ECE_S7_C02,ECE,7,Wireless Networks,4,Moderate,Core,7,academic_catalog_export
+ECE_S7_C03,ECE,7,Robotics Fundamentals,2,Low,Core,7,academic_catalog_export
+ECE_S7_C04,ECE,7,Signal Processing Lab,3,Moderate,Applied/Lab,7,academic_catalog_export
+ECE_S7_C05,ECE,7,Project Lab,4,High,Applied/Lab,7,academic_catalog_export
+EEE_S5_C01,EEE,5,Electrical Machines,2,Moderate,Core,5,academic_catalog_export
+EEE_S5_C02,EEE,5,Power Systems,4,Moderate,Core,5,academic_catalog_export
+EEE_S5_C03,EEE,5,Control Systems,2,Moderate,Core,5,academic_catalog_export
+EEE_S5_C04,EEE,5,Power Electronics,3,Moderate,Applied/Lab,5,academic_catalog_export
+EEE_S5_C05,EEE,5,Electrical Measurements,2,Moderate,Applied/Lab,5,academic_catalog_export
+EEE_S6_C01,EEE,6,Switchgear and Protection,4,Low,Core,6,academic_catalog_export
+EEE_S6_C02,EEE,6,Renewable Energy Systems,3,Moderate,Core,6,academic_catalog_export
+EEE_S6_C03,EEE,6,High Voltage Engineering,3,Moderate,Core,6,academic_catalog_export
+EEE_S6_C04,EEE,6,Smart Grids,4,Moderate,Applied/Lab,6,academic_catalog_export
+EEE_S6_C05,EEE,6,Electrical Drives,2,Moderate,Applied/Lab,6,academic_catalog_export
+EEE_S7_C01,EEE,7,Power System Analysis,4,Moderate,Core,7,academic_catalog_export
+EEE_S7_C02,EEE,7,Industrial Automation,2,Low,Core,7,academic_catalog_export
+EEE_S7_C03,EEE,7,Energy Management,4,Moderate,Core,7,academic_catalog_export
+EEE_S7_C04,EEE,7,Power Electronics Lab,3,Moderate,Applied/Lab,7,academic_catalog_export
+EEE_S7_C05,EEE,7,Project Lab,3,Low,Applied/Lab,7,academic_catalog_export
+MECHANICAL_S5_C01,Mechanical,5,Thermodynamics,2,High,Core,5,academic_catalog_export
+MECHANICAL_S5_C02,Mechanical,5,Manufacturing Processes,3,Moderate,Core,5,academic_catalog_export
+MECHANICAL_S5_C03,Mechanical,5,Fluid Mechanics,4,Moderate,Core,5,academic_catalog_export
+MECHANICAL_S5_C04,Mechanical,5,Machine Design,3,Moderate,Applied/Lab,5,academic_catalog_export
+MECHANICAL_S5_C05,Mechanical,5,Heat Transfer,3,Moderate,Applied/Lab,5,academic_catalog_export
+MECHANICAL_S6_C01,Mechanical,6,Theory of Machines,3,Low,Core,6,academic_catalog_export
+MECHANICAL_S6_C02,Mechanical,6,CAD/CAM,4,Moderate,Core,6,academic_catalog_export
+MECHANICAL_S6_C03,Mechanical,6,Industrial Engineering,3,Moderate,Core,6,academic_catalog_export
+MECHANICAL_S6_C04,Mechanical,6,Automobile Engineering,3,Moderate,Applied/Lab,6,academic_catalog_export
+MECHANICAL_S6_C05,Mechanical,6,Finite Element Methods,2,Low,Applied/Lab,6,academic_catalog_export
+MECHANICAL_S7_C01,Mechanical,7,Production Planning,4,Moderate,Core,7,academic_catalog_export
+MECHANICAL_S7_C02,Mechanical,7,Mechatronics,2,Low,Core,7,academic_catalog_export
+MECHANICAL_S7_C03,Mechanical,7,Quality Engineering,3,Moderate,Core,7,academic_catalog_export
+MECHANICAL_S7_C04,Mechanical,7,Manufacturing Lab,3,Low,Applied/Lab,7,academic_catalog_export
+MECHANICAL_S7_C05,Mechanical,7,Project Lab,2,High,Applied/Lab,7,academic_catalog_export
+CIVIL_S5_C01,Civil,5,Structural Analysis,4,Low,Core,5,academic_catalog_export
+CIVIL_S5_C02,Civil,5,Geotechnical Engineering,3,Low,Core,5,academic_catalog_export
+CIVIL_S5_C03,Civil,5,Surveying,3,Moderate,Core,5,academic_catalog_export
+CIVIL_S5_C04,Civil,5,Fluid Mechanics,2,Moderate,Applied/Lab,5,academic_catalog_export
+CIVIL_S5_C05,Civil,5,Building Materials,3,Moderate,Applied/Lab,5,academic_catalog_export
+CIVIL_S6_C01,Civil,6,Concrete Technology,3,Moderate,Core,6,academic_catalog_export
+CIVIL_S6_C02,Civil,6,Transportation Engineering,2,High,Core,6,academic_catalog_export
+CIVIL_S6_C03,Civil,6,Environmental Engineering,3,Moderate,Core,6,academic_catalog_export
+CIVIL_S6_C04,Civil,6,Steel Structures,3,Moderate,Applied/Lab,6,academic_catalog_export
+CIVIL_S6_C05,Civil,6,Foundation Engineering,3,Moderate,Applied/Lab,6,academic_catalog_export
+CIVIL_S7_C01,Civil,7,Construction Management,3,Moderate,Core,7,academic_catalog_export
+CIVIL_S7_C02,Civil,7,Water Resources,3,Moderate,Core,7,academic_catalog_export
+CIVIL_S7_C03,Civil,7,Structural Design,3,Low,Core,7,academic_catalog_export
+CIVIL_S7_C04,Civil,7,Civil Engineering Lab,3,Moderate,Applied/Lab,7,academic_catalog_export
+CIVIL_S7_C05,Civil,7,Project Lab,2,Low,Applied/Lab,7,academic_catalog_export
+CHEMICAL_S5_C01,Chemical,5,Chemical Process Principles,2,High,Core,5,academic_catalog_export
+CHEMICAL_S5_C02,Chemical,5,Heat Transfer,4,Low,Core,5,academic_catalog_export
+CHEMICAL_S5_C03,Chemical,5,Mass Transfer,2,Moderate,Core,5,academic_catalog_export
+CHEMICAL_S5_C04,Chemical,5,Chemical Reaction Engineering,3,Moderate,Applied/Lab,5,academic_catalog_export
+CHEMICAL_S5_C05,Chemical,5,Process Calculations,3,Moderate,Applied/Lab,5,academic_catalog_export
+CHEMICAL_S6_C01,Chemical,6,Separation Processes,3,Moderate,Core,6,academic_catalog_export
+CHEMICAL_S6_C02,Chemical,6,Process Control,4,Low,Core,6,academic_catalog_export
+CHEMICAL_S6_C03,Chemical,6,Plant Design,3,Moderate,Core,6,academic_catalog_export
+CHEMICAL_S6_C04,Chemical,6,Industrial Safety,3,Moderate,Applied/Lab,6,academic_catalog_export
+CHEMICAL_S6_C05,Chemical,6,Process Simulation,3,Moderate,Applied/Lab,6,academic_catalog_export
+CHEMICAL_S7_C01,Chemical,7,Petrochemical Technology,3,Moderate,Core,7,academic_catalog_export
+CHEMICAL_S7_C02,Chemical,7,Environmental Engineering,4,High,Core,7,academic_catalog_export
+CHEMICAL_S7_C03,Chemical,7,Process Economics,3,High,Core,7,academic_catalog_export
+CHEMICAL_S7_C04,Chemical,7,Chemical Engineering Lab,3,High,Applied/Lab,7,academic_catalog_export
+CHEMICAL_S7_C05,Chemical,7,Project Lab,3,Low,Applied/Lab,7,academic_catalog_export
+INSTRUMENTATION_S5_C01,Instrumentation,5,Sensors and Transducers,4,Moderate,Core,5,academic_catalog_export
+INSTRUMENTATION_S5_C02,Instrumentation,5,Measurement Systems,3,Low,Core,5,academic_catalog_export
+INSTRUMENTATION_S5_C03,Instrumentation,5,Control Systems,3,Moderate,Core,5,academic_catalog_export
+INSTRUMENTATION_S5_C04,Instrumentation,5,Industrial Instrumentation,3,Moderate,Applied/Lab,5,academic_catalog_export
+INSTRUMENTATION_S5_C05,Instrumentation,5,Signal Conditioning,3,Moderate,Applied/Lab,5,academic_catalog_export
+INSTRUMENTATION_S6_C01,Instrumentation,6,Process Control,3,Moderate,Core,6,academic_catalog_export
+INSTRUMENTATION_S6_C02,Instrumentation,6,Microcontrollers,2,Low,Core,6,academic_catalog_export
+INSTRUMENTATION_S6_C03,Instrumentation,6,PLC and SCADA,4,Moderate,Core,6,academic_catalog_export
+INSTRUMENTATION_S6_C04,Instrumentation,6,Data Acquisition,4,Moderate,Applied/Lab,6,academic_catalog_export
+INSTRUMENTATION_S6_C05,Instrumentation,6,Embedded Systems,3,High,Applied/Lab,6,academic_catalog_export
+INSTRUMENTATION_S7_C01,Instrumentation,7,Industrial Networks,4,High,Core,7,academic_catalog_export
+INSTRUMENTATION_S7_C02,Instrumentation,7,Automation Systems,2,Moderate,Core,7,academic_catalog_export
+INSTRUMENTATION_S7_C03,Instrumentation,7,Smart Sensors,4,Moderate,Core,7,academic_catalog_export
+INSTRUMENTATION_S7_C04,Instrumentation,7,Instrumentation Lab,2,Low,Applied/Lab,7,academic_catalog_export
+INSTRUMENTATION_S7_C05,Instrumentation,7,Project Lab,3,Moderate,Applied/Lab,7,academic_catalog_export
