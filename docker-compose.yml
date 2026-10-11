@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DEMO_READ_ONLY: "${DEMO_READ_ONLY:-true}"
+      MAX_UPLOAD_MB: "${MAX_UPLOAD_MB:-100}"
+      GEMINI_API_KEY: "${GEMINI_API_KEY:-}"
+      CORS_ORIGINS: "${CORS_ORIGINS:-http://localhost:5173,http://localhost:8080}"
+      ATLAS_DB_PATH: /app/state/atlas_state.sqlite3
+    volumes:
+      - atlas_state:/app/state
+    ports:
+      - "8000:8000"
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        VITE_API_URL: "${VITE_API_URL:-http://localhost:8000}"
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+volumes:
+  atlas_state:
