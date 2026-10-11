@@ -26,12 +26,12 @@ except ImportError:
     pass
 
 APP_DIR = Path(__file__).resolve().parent
-REPO_DIR = APP_DIR.parents[2]
-
-DEFAULT_DATA_DIR = REPO_DIR / "data"
+DEFAULT_DATA_DIR = APP_DIR.parent / "data"
 DATA_DIR = Path(
     os.getenv("STUDENT_DATA_DIR", str(DEFAULT_DATA_DIR))
 ).resolve()
+
+store = DatasetStore(DATA_DIR)
 
 store = DatasetStore(DATA_DIR)
 STAGING_DIR = DATA_DIR.parent / "staging"
