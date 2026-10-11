@@ -1,0 +1,59 @@
+{
+  "dataset_provenance": "synthetic; model scores do not establish real-world performance",
+  "rows_total": 20000,
+  "features_used": 45,
+  "train_rows": 16000,
+  "test_rows": 4000,
+  "placement_rate_overall": 0.54825,
+  "logistic_regression": {
+    "roc_auc": 0.7754840008872623,
+    "pr_auc": 0.7944914274799837,
+    "accuracy_at_0_5": 0.7105,
+    "precision_at_0_5": 0.7249022164276402,
+    "recall_at_0_5": 0.7606019151846786,
+    "f1_at_0_5": 0.7423230974632844,
+    "brier_score": 0.1916841020971074,
+    "classification_report": {
+      "0": {
+        "precision": 0.6909947027663331,
+        "recall": 0.6496956281128943,
+        "f1-score": 0.6697090701654307,
+        "support": 1807.0
+      },
+      "1": {
+        "precision": 0.7249022164276402,
+        "recall": 0.7606019151846786,
+        "f1-score": 0.7423230974632844,
+        "support": 2193.0
+      },
+      "accuracy": 0.7105,
+      "macro avg": {
+        "precision": 0.7079484595969867,
+        "recall": 0.7051487716487864,
+        "f1-score": 0.7060160838143575,
+        "support": 4000.0
+      },
+      "weighted avg": {
+        "precision": 0.7095844971311447,
+        "recall": 0.7105,
+        "f1-score": 0.709519710631479,
+        "support": 4000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1174,
+        633
+      ],
+      [
+        525,
+        1668
+      ]
+    ]
+  },
+  "dummy_baseline": {
+    "roc_auc": 0.5,
+    "accuracy": 0.54825,
+    "pr_auc": 0.54825
+  }
+}
