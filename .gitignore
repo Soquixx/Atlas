@@ -14,6 +14,7 @@ env/
 backend/.venv/
 backend/venv/
 
+#env variables
 .env
 .env.*
 **/.env
